@@ -1,0 +1,46 @@
+describe('Facilitator',function(){
+    this.beforeEach(()=>{
+        cy.loginDashboard()
+    })
+    // it('Tambah Facilitator',function(){
+    //     cy.contains('Tambah Facilitator').click()
+    //     cy.contains('Tambah Data Fasilitator').should('exist')
+    //     cy.get('#drop-zone').attachFile('logo.jpg')
+    //     cy.get('#user_fullname').type('Farhan Test 1')
+    //     cy.get('#user_email').type('farhantest@dojobox.id')
+    //     cy.get('#user_is_active').select('Aktif')
+        
+    //     cy.get('#user_password').type('admin123')
+    //     cy.get('#user_province_id').select('DKI JAKARTA')
+    //     // cy.get('#user_city_id').select('KOTA ADM.JAKARTA BARAT')
+    //     // cy.get('#user_subdistrict_id').select('Kebon Jeruk')
+    //     cy.get('#user_address').type('Masih didunia')
+    // })
+    // it('Lihat Facilitator',function(){
+    //     cy.get('#dataTable_filter > label > .form-control').type('Farhan')
+    //     cy.wait(5000)
+    //     cy.get('tbody > :nth-child(1) > .dt-center').click()
+    //     cy.contains('Lihat').click()
+    //     cy.contains('Detail Data Fasilitator').should('exist')
+    // })
+    // it('Ubah Facilitator',function(){
+    //     cy.get('#dataTable_filter > label > .form-control').type('Farhan')
+    //     cy.wait(5000)
+    //     cy.get('tbody > :nth-child(1) > .dt-center').click()
+    //     cy.contains('Ubah').click()
+    // })
+    it('Non-aktifkan Facilitator',function(){
+        cy.get('#dataTable_filter > label > .form-control').type('Farhan')
+        cy.wait(2500)
+        cy.get('tbody > :nth-child(1) > .dt-center').click()
+        cy.contains('Nonaktifkan').click()
+        cy.contains('Perubahan fasilitator berhasil diproses').should('exist')
+    })
+    it('Aktifkan Facilitator',function(){
+        cy.get('#dataTable_filter > label > .form-control').type('Farhan')
+        cy.wait(2500)
+        cy.get('tbody > :nth-child(1) > .dt-center').click()
+        cy.contains('Aktifkan').click()
+        cy.contains('Perubahan fasilitator berhasil diproses').should('exist')
+    })
+})
